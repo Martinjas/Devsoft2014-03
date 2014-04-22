@@ -90,8 +90,8 @@ STR
 # 1) Capturar o horário, tema, e título de cada notícia. Em seguida, para cada
 # notícia, imprimi-la com o seguinte formato: "TEMA: TÍTULO (HORA)"
 about=str.match(/(\[(.)*\])/)
-i=0
-while about.size>i do 
+i=1
+while about.size>=i do 
 	puts "#{about[i]}"
 	i+=1
 end
