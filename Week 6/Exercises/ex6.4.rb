@@ -89,7 +89,7 @@ STR
 
 # 1) Capturar o horário, tema, e título de cada notícia. Em seguida, para cada
 # notícia, imprimi-la com o seguinte formato: "TEMA: TÍTULO (HORA)"
-about=str.match(([(.)*]))
+about=str.match(/([(.)*])/)
 puts "#{about}"
 # Seu código aqui...
 
