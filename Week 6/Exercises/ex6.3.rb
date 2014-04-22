@@ -78,7 +78,7 @@ def io_v2
         n=Mechanize.new
         n.get(links[(a+(i-1)*10)])
         a+=1
-        a=a%10
+        a=a%11
       end  
     }
     tarefas<<t   
@@ -106,13 +106,36 @@ def cpu_v1
   # Versão sequencial do programa CPU-intensive.
   # Escreva uma função que chama a função sum(n) para todos os inteiros
   # entre 0 e 100.
+  101.times do |i|
+	sum(i-1)
+  end
 end
 
 def cpu_v2
   # Versão do CPU-intensive com 10 threads.
+   tarefas=[]
+ 10.times do |i|
+    t=Thread.new{
+      a=0
+      while (a+(i-1)*10)<(10*i) do
+        sum(a+(i-1)*10)
+		a+=1
+      end  
+    }
+    tarefas<<t   
+  end
+  tarefas.each {|k| k.join}
 end
 
 def cpu_v3
+  tarefas=[]
+ 101.times do |i|
+    t=Thread.new{
+        sum(i-1)
+    }
+    tarefas<<t   
+  end
+  tarefas.each {|k| k.join}
   # Versão do CPU-intensive com 100 threads.
 end
 
