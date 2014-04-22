@@ -95,7 +95,6 @@ while about.size>=i do
 	puts "#{about[i]}"
 	i+=1
 end
-puts "#{about[1]}"
 # Seu código aqui...
 
 # 2) Quantas linhas existem nesta string?
