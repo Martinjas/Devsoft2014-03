@@ -64,5 +64,11 @@ page = mechanize.page.links.find { |l| l.text == "Vagas disponíveis" }.click
 
 
 save_html('vagas disponiveis',mechanize.page.body)
-
+links =page.links_with(:href => /exibirVaga/)
+a=1
+links.each do |l|		
+	pagina = mechanize.click(l)
+	save_html("vaga nbm= #{a}",pagina.body)
+	a=a+1
+end
 
