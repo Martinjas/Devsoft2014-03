@@ -72,27 +72,20 @@ vagas=[]
 ntotal=0
 links.each do |l|		
 	pagina = mechanize.click(l)
-	vaga=Hash.new
 	vaga[:Area]= pagina.search(%Q{span[@id='ContentPlaceHolder1_lblArea']}).text
 	vaga[:Titulo]=pagina.search(%Q{span[@id='ContentPlaceHolder1_lblTitulo']}).text
 	vaga[:Empresa]=pagina.search(%Q{span[@id='ContentPlaceHolder1_lblEmpresa']}).text
 	vaga[:Descricao]=pagina.search(%Q{span[@id='ContentPlaceHolder1_lblDescricao']}).text
 	vaga[:Requisitos]=pagina.search(%Q{span[@id='ContentPlaceHolder1_lblRequisitos']}).text	
 	vaga[:Beneficios]=pagina.search(%Q{span[@id='ContentPlaceHolder1_lblBeneficios']}).text	
-	vaga[:NumerodeVagas]=pagina.search(%Q{span[@id='ContentPlaceHolder1_lblNumeroVagas']}).text
-	vaga[:Divulgacao]=pagina.search(%Q{span[@id='ContentPlaceHolder1_lblDataAnuncio']}).text
-	vaga[:Validade]=pagina.search(%Q{span[@id='ContentPlaceHolder1_lblDataValidade']}).text
-	vagas<<vaga
-	ntotal+=vagas[a][:NumerodeVagas].to_i	
+	vaga[:NumerodeVagas]=pagina.search(%Q{span[@id='ContentPlaceHolder1_lblNumeroVagas']}).tex	
+	ntotal+=vacationes[:Vagas][0][:NumerodeVagas].to_i	
 	puts vagas[a][:Empresa]
 	save_html("vaga nbm= #{a}",pagina.body)
 	a=a+1
 		
 end
-
-vagas.each do |s| 
-	puts s[:Area]
-end
+ puts vacationes[:Vagas][:Area]
 File.open("data.json","w") do |f|
-	f.write(vagas.to_json)
+	f.write(vacationes.to_json)
 end
