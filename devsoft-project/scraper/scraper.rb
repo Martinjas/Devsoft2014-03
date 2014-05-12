@@ -87,3 +87,6 @@ links.each do |l|
 		
 end
  puts ntotal
+File.open("data.json","w") do |f|
+	f.write(vagas.to_json)
+end
